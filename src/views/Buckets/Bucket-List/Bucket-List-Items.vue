@@ -1,32 +1,24 @@
 <template lang="html">
-  <section class="bucket-list-items">
-    <div v-if="!buckets">
+  <section class="bucket-list-items grid">
+    <div v-if="!buckets" class="table-head">
       Create a Bucket to Get Started
     </div>
-    <table v-else class="table table-hover">
-      <thead>
-        <tr>
-          <th class="hidden-xs">Bucket</th>
-          <th class="bucket-plan">Name</th>
-          <th class="bucket-storage">Storage</th>
-          <th class="bucket-transfer">Transfer</th>
-          <th class="bucket-status">Status</th>
-        </tr>
-      </thead>
-      <tbody v-for="bucket in buckets" :key="bucket.id">
-        <tr class="clickable-row"  @click="navigateToBucket(bucket.id)">
-          <td class="bucket-icon hidden-xs">
-            <img src="../../../../static/img/icon-bucket.svg" alt="">
-          </td>
-          <td class="bucket-label">
-            <a @click="navigateToBucket">{{ bucket.name }}</a>
-          </td>
-          <td class="bucket-storage">{{ bucket.storage }} GB</td>
-          <td class="bucket-transfer">{{ bucket.transfer }} GB</td>
-          <td class="bucket-status">{{ bucket.status }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="grid-table">
+      <div class="table-head">Bucket</div>
+      <div class="table-head">Name</div>
+      <div class="table-head">Storage</div>
+      <div class="table-head">Transfer</div>
+      <div class="table-head">Status</div>
+      <div class="table-body bucket-icon hidden-xs">
+        <img src="../../../../static/img/icon-bucket.svg" alt="">
+      </div>
+      <div class="table-body bucket-label">
+        <a @click="navigateToBucket">{{ bucket.name }}</a>
+      </div>
+      <div class="table-body bucket-storage">{{ bucket.storage }} GB</div>
+      <div class="table-body bucket-transfer">{{ bucket.transfer }} GB</div>
+      <div class="table-body bucket-status">{{ bucket.status }}</div>
+    </div>
   </section>
 </template>
 

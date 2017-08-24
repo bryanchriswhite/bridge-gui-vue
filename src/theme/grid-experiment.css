@@ -1,0 +1,37 @@
+.grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, [header] 1fr);
+  grid-template-areas:
+    "header button"
+    "table table";
+}
+
+.grid-header {
+  grid-area: header;
+}
+
+.grid-button {
+  grid-area: button;
+  justify-self: end;
+}
+
+.grid-table {
+  display: subgrid;
+  grid-area: table;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "head head head head head"
+    "body body body body body";
+  /*grid-template:*/
+    /*repeat(5, [head] 1fr)*/
+}
+
+.grid-table>.table-head {
+  grid-area: head;
+}
+
+.grid-table>.table-body {
+  grid-area: body;
+}
